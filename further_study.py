@@ -15,8 +15,12 @@ def custom_len(input_list):
         8
 
     """
+    counter = 0
 
-    return 0
+    for word in input_list:
+        counter += 1
+
+    return counter
 
 
 # For the next four exercises, you'll need to be clever and think about ways
@@ -44,7 +48,9 @@ def custom_append(input_list, value):
 
     """
 
-    pass
+    list_length = custom_len(input_list)
+    input_list[list_length:list_length] = [value]
+
 
 
 def custom_extend(input_list, second_list):
@@ -63,7 +69,8 @@ def custom_extend(input_list, second_list):
 
     """
 
-    pass
+    month_len = custom_len(input_list)
+    input_list[month_len:month_len] = second_list
 
 
 def custom_insert(input_list, index, value):
@@ -81,7 +88,7 @@ def custom_insert(input_list, index, value):
 
     """
 
-    pass
+    input_list[index:index] = [value]
 
 
 def custom_remove(input_list, value):
@@ -100,7 +107,13 @@ def custom_remove(input_list, value):
 
     """
 
-    pass
+    counter = 0
+
+    for i in input_list:
+        if i == value:
+            input_list[counter:counter + 1] = []
+            break
+        counter += 1
 
 
 def custom_pop(input_list):
@@ -119,7 +132,9 @@ def custom_pop(input_list):
 
     """
 
-    return None
+    remove = input_list[-1]
+    input_list[-1:] = []    
+    return remove
 
 
 def custom_index(input_list, value):
@@ -135,9 +150,15 @@ def custom_index(input_list, value):
 
     """
 
-    return 0
+    counter = 0
 
-
+    for i in input_list:
+        if i == value:
+            return counter
+        
+        counter += 1
+    
+    
 def custom_count(input_list, value):
     """Return the number of times value appears in the list.
 
@@ -151,7 +172,13 @@ def custom_count(input_list, value):
 
     """
 
-    return 0
+    counter = 0
+
+    for i in input_list:
+        if i == value:
+            counter += 1
+
+    return counter        
 
 
 def custom_reverse(input_list):
@@ -170,7 +197,8 @@ def custom_reverse(input_list):
 
     """
 
-    pass
+    input_list[::-1]
+    return None
 
 
 def custom_contains(input_list, value):
@@ -190,7 +218,11 @@ def custom_contains(input_list, value):
 
     """
 
-    return None
+    for num in input_list:
+        if num == value:
+            return True
+
+    return False        
 
 
 def custom_equality(some_list, another_list):
@@ -209,7 +241,10 @@ def custom_equality(some_list, another_list):
 
     """
 
-    return None
+    if some_list != another_list:
+        return False
+    
+    return True
 
 
 # This is the part were we actually run the doctests.
